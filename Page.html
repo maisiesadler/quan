@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://localhost/quan/style.css"/>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>-->
+    <script src="http://localhost/quan/angular.min.js"></script>
+    <script src="http://localhost/quan/helper.js"></script>
+    <script src="http://localhost/quan/qa.js"></script>
+    <script src="http://localhost/quan/app.js"></script>    
+    <script src="http://localhost/quan/store.js"></script>
+    <script src="http://localhost/quan/redisstore.js"></script>
+    <script src="http://localhost/quan/components/currentuser.js"></script>
+    <script src="http://localhost/quan/components/editabletextbox.js"></script>
+    <script src="http://localhost/quan/components/addquestion.js"></script>
+    <script src="http://localhost/quan/components/question.js"></script>
+    <script src="http://localhost/quan/components/questionPage.js"></script>
+    <script src="http://localhost/quan/components/comment.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl as ct">
+    <!--<div class="currentuser">
+        <div ng-click="logOut()" ng-if="loggedin" class="log-out">Log out</div>
+        <editable-textbox value="user.name" is-editable="!loggedin"></editable-textbox>
+        <input ng-model="user.password" ng-if="!loggedin" />
+        <div ng-click="signIn()" ng-if="!loggedin">Sign In With Password</div>
+        <div ng-click="register()" ng-if="!loggedin">Register</div>
+    </div>-->
+    <current-user user="user"></current-user>
+    <div class="bar"></div>
+    <div class="navbar">
+        <div class="navbuttons">
+            <div ng-show="loggedin" ng-click="changeView('addqu')">Add</div>
+            <div ng-click="changeView('viewall')">ViewAll</div>
+        </div>
+        <div class="search">
+            Search
+            <input ng-model="searchText">
+        </div>
+    </div>
+    <div class="bar"></div>
+    <div ng-switch="currentview" class="currentview">
+        <div ng-switch-when="addqu" class="addqu">
+            <add-question on-save-question="saveNewQuestion(question)" user="user"></add-question>
+        </div>
+        <div ng-switch-when="viewall" class="viewall">
+            <div ng-repeat="questionPage in questionPages | filter:searchText">
+                <question-page question-page="questionPage" on-click-question="viewQuestionPage(questionPage)"></question-page>
+            </div>
+        </div>
+        <div ng-switch-when="view" class="view">
+            <question-page question-page="questionPage" editable="true"></question-page>
+        </div>
+    </div>
+    <div ng-click="saveAll()" class="save-changes">Save changes</div>
+</body>
+
+</html>

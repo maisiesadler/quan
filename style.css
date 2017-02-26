@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #e3e3e8;
+}
+
+.question-page{
+    margin: 10px;
+}
+
+.question-page .toggle-comments{
+    font-size: 10px;
+}
+
+.question.title{
+    font-size: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.question.description {
+    color: #444;
+}
+
+.question.user {
+    display: inline-block;
+    font-style: italic;
+}
+
+.comment {
+    margin-left: 20px;
+    width: 50%;
+}
+
+.comment .save,
+.comment .user{
+    font-size: 12px;
+    color: #444;
+    font-style: italic;
+    text-align: right;
+}
+
+.comment .save,
+.comment .cancel{
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 2px;
+}
+
+.save-changes{
+    position: absolute;
+    bottom: 0;
+    right:0;
+}
+
+.add-question.title,
+.add-question.description{
+    display: block;
+}
+
+.comment .input div{
+    font-size: 12px;
+    color: #444;    
+}
+
+.currentuser {
+    background-color: #493f66;
+    padding: 8px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.currentuser > * {
+    display: inline-block;
+}
+
+.currentuser > div{
+    padding-right: 10px;
+}
+
+.currentuser .log-out{
+    position: absolute;
+    right: 0;
+}
+
+.bar {
+    background-color: #170154;
+    height: 5px;
+}
+
+.navbar{
+    padding: 5px;
+    background-color: #cac7e0;
+}
+
+.navbar > * {
+    display: inline-block;
+}
+
+.navbar .navbuttons {
+    width: calc(100% - 240px);
+}
+
+.navbar .navbuttons > * {
+    display: inline-block;
+}
+
+.navbar .search{
+    width: 230px;
+}
+
+
+.currentview {
+    padding: 10px;
+}
+
+.currentview input.add-question {
+    font-size: 20px;
+    margin: 5px 0;
+    width: 90%;
+    max-width: 700px;
+}
+
+.currentview textarea {
+    margin: 5px 0;
+    width: 90%;
+    height: 4em;
+    max-width: 900px;
+}
+
+.truncate {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.viewall .question-page .question.title {
+    color: #233329;
+}
+
+.viewall .question-page .question.user,
+.viewall .question-page .question.description {
+    color: #32473b;
+}
